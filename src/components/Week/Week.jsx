@@ -83,7 +83,9 @@ const Week = ({ week, today, setWeek }, ...props) => {
             <WeekDay>
               {day.toLocaleDateString('en', { weekday: 'narrow' })}
             </WeekDay>
-            <WeekDate isToday={day.getDate() === today.getDate()}>
+            <WeekDate
+              isToday={day.toLocaleDateString() === today.toLocaleDateString()}
+            >
               {day.getDate()}
             </WeekDate>
           </WeekCell>
