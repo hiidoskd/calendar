@@ -27,7 +27,7 @@ const Header = ({ setEvents, events }) => {
     const input = prompt('Enter date time: YYYY-MM-DD HH:mm:ss');
 
     const newEvent = new Date(input);
-
+    // console.log(input, newEvent);
     setEvents([...events, { id: events.length + 1, time: newEvent.getTime() }]);
   };
 

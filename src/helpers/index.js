@@ -8,6 +8,10 @@ const getMonday = (d) => {
   d = new Date(d);
   var day = d.getDay(),
     diff = d.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
+  d.setHours(0);
+  d.setMinutes(0);
+  d.setSeconds(0);
+  d.setMilliseconds(0);
   return new Date(d.setDate(diff));
 };
 
@@ -38,11 +42,11 @@ export const mapEvents = (events, week) => {
   ];
 
   const eventsMap = emptyEvents;
+  console.log(week[0]);
   for (let i = 0; i < events.length; i++) {
-    const eventDate = new Date(events[i].time);
     if (
-      eventDate.getDate() <= week[6].getDate() &&
-      eventDate.getDate() >= week[0].getDate()
+      events[i].time <= week[6].getTime() &&
+      events[i].time >= week[0].getTime()
     ) {
       const date = new Date(events[i].time);
       const day = date.getDay();

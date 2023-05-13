@@ -19,10 +19,11 @@ function App() {
   const [events, setEvents] = useState(eventsFetched);
   const [selectedEvent, setSelectedEvent] = useState({});
   const eventsMap = mapEvents(events, week);
-
+  // console.log(events);
   const deleteEvent = () => {
     if (selectedEvent.time) {
       setEvents(events.filter((e) => e.time !== selectedEvent.time));
+      setSelectedEvent({});
     }
   };
 
